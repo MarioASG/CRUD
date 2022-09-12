@@ -20,15 +20,18 @@ function agregarCancion(event) {
         banda: banda.value,
         album: album.value
     }
-        let cancionIncluida = canciones.includes(cancion.nombre)
+        
+        let cancionIncluida = canciones.find(cancion => 
+            cancion.nombre === nombre.value && 
+            cancion.banda === banda.value &&
+            cancion.album === album.value)
     if (cancion.nombre === "" || cancion.banda === "" ||cancion.album === ""){
         mostrarAlerta()
-    }else if(cancion.nombre === cancionIncluida){
-        mostrarAlerta()
+    }else if(cancionIncluida !== undefined){
+        swal('Error', 'La cancion ingresada ya se encuentra en la lista', 'error')
 
     }else{
         canciones.push(cancion)
-        console.log(cancion);
     }
 
     // canciones.push(cancion)

@@ -1,31 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://w7.pngwing.com/pngs/87/368/png-transparent-soundbar-logo-equalization-music-sound-bars-angle-text-rectangle.png">
+    <link rel="stylesheet" href="./style.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    
-    <title>Document</title>
-    
-    <link rel="stylesheet" href="./style.css">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous"> -->
-    
+    <title>CRUD Mario Sanhueza</title>
+
+    <!-- CSS only -->
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> -->
 
 </head>
-
 <body>
-    
     <header>
-        
-    </header>
+        <div class="nav1">
+            <h1>MS STUDIOS</h1>
+            <img src="https://w7.pngwing.com/pngs/87/368/png-transparent-soundbar-logo-equalization-music-sound-bars-angle-text-rectangle.png" alt="" >
+            <a href="#">Quienes Somos</a>
+            <a href="#">Redes</a>
 
+        </div>
+        <div class="nav2">
+            <a href="#">Contáctanos</a>
+            <a href="#">Iniciar Sesión</a>
+        </div>
+      </header>
     <main>
-
-        <h1>Lista de Canciones</h1>
-
+        <div class="titulo">
+        <h1>CANCIONES A ENSAYAR</h1>
+        <h3>¿Necesitas organizarte y ordenar las canciones que debes ensayar con tu banda?</h3>
+        <h3>Ingrésalas aquí y nunca más se te olvidarán</h3>
+        </div>
         <section class="formulario">
+            
+            <img src="https://png.pngtree.com/thumb_back/fw800/back_our/20190622/ourmid/pngtree-purple-minimalist-music-note-banner-background-image_233650.jpg" alt="">
+            <h2>Ingrese Canción</h2>
+            <hr width="300">
             <form>
                 <label for="nombreCancion">Canción</label>
                 <input type="text" name="nombre" id="nombreCancion">
@@ -38,31 +51,11 @@
 
             </form>
         </section>
-        <section id="canciones">
-            <!-- <article>
-                <div>
+        <section id="canciones" class="cancionesCSS">
 
-                
-                <p>Hacer inventario</p>
-                <p>Marcela Quezada</p>
-                <p>Se debe ejecutar el inventario de la bodega 1</p>
-
-                </div>
-                <div>
-                <button>Editar</button>
-                <button>Borrar</button>
-
-                </div>
-
-            </article> -->
         </section>
 
     </main>
-
-
-
-
-
     <script src="./main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>

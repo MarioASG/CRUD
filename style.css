@@ -1,17 +1,99 @@
-form{
+*{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body{
+    margin: 0;
+    background: linear-gradient(to left, #b8fff7, #96e5ff, #b8fff7);
+}
+
+header{
+    background: linear-gradient(to left, #0fb7e5, #0b547b);
+    padding: 0 100px;
     display: flex;
-    flex-direction: column;
-    width: 50%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+header a{
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.nav1, .nav2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 35px;
+    
+}
+.nav1 a{
+    color: #dedede;
+}
+
+.nav2 a{
+    color: rgb(42, 42, 42);
+}
+
+a:hover{
+    color: #80dc80;
+    transition: 0.2s;
+    transform: scale(1.1);
+}
+
+.nav1 img {
+    width: 60px;
+    height: 40px;
 }
 
 main{
+    display: grid;
+    flex-direction: column;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas:
+    'a a'
+    'b c';
+    gap: 25px;
+    width: 1750px;
+    margin: auto;
+    
+}
+
+main .titulo{
     display: flex;
     flex-direction: column;
     align-items: center;
+    grid-area: a;
+    font-size: 35px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 10px auto;
+    /* background: rgb(7, 75, 164); */
+}
+main h3{
+    font-size: 25px;
+    font-style: oblique;
+    color: #535353;
+}
+.container-fluid img {
+    width: 60px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    width: 450px;
+    
 }
 
 input{
     margin-bottom: 2em ;
+    width: 150px;
 }
 
 p{
@@ -19,30 +101,53 @@ p{
 }
 
 .formulario{
+    grid-area: b;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: auto;
+    padding-bottom: 20px;
     margin-bottom: 5em;
+    box-shadow: 15px 15px 75px 0px #03749d;
+    border-radius: 20px;
+    background-image: url(https://cdn173.picsart.com/220240617007202.png?type=webp&to=min&r=640);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.formulario img{
+    width: 500px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
 #canciones{
     display: flex;
     flex-direction: column;
-    width: 80%;
     align-items: center;
-    
+}
+.cancionesCSS{
+    grid-area: c;
+    /* background: rgb(17, 206, 165); */
+    width: 100%x;
+
 }
 
 #canciones article{
     display:  flex;
     width: 100%;
-    background-color: #ccc;
+    padding: 5px 30px;
     border-radius: 5px;
     box-shadow: 1px 1px 3px #000000;
     justify-content: space-between;
+    /* background: rgb(182, 123, 123); */
 }
 
 #canciones article div:first-child{
     display: flex;
+    /* background: rgb(199, 46, 46); */
 
 }
 
