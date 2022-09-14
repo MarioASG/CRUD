@@ -1,21 +1,29 @@
-let botonAgregar = document.getElementById('agregar')
-botonAgregar.addEventListener('click', (event) => agregarCancion(event))
+let botonAgregar = document.getElementById('agregar');
+botonAgregar.addEventListener('click', (event) => {agregarCancion(event)});
 
-let botonActualizar = document.getElementById('actualizar')
-botonActualizar.addEventListener('click', (event) => actualizarCancion(event))
+let botonActualizar = document.getElementById('actualizar');
+botonActualizar.addEventListener('click', (event) => actualizarCancion(event));
 
-let nombre = document.getElementById('nombreCancion')
-let banda = document.getElementById('banda')
-let album = document.getElementById('album')
+let idCanciones = document.querySelector("#id");
+let nombre = document.getElementById('nombreCancion');
+let banda = document.getElementById('banda');
+let album = document.getElementById('album');
 
-let contenedor = document.getElementById('canciones')
+let cancionesCSS = document.querySelector('.cancionesCSS');
 
-let canciones = []
+// Sortable.create(cancionesCSS, {
+//     animation: 150,
+//     chosenClass: "seleccionado",
+//     ghostClass: "fantasma",
+// });
+
+let canciones = [];
 
 function agregarCancion(event) {
     event.preventDefault()
 
     const cancion = {
+        id:(canciones.length + 1),
         nombre: nombre.value,
         banda: banda.value,
         album: album.value
@@ -34,7 +42,6 @@ function agregarCancion(event) {
         canciones.push(cancion)
     }
 
-    // canciones.push(cancion)
     guardarEnLS()
     mostrarCanciones()
     limpiarInput()
@@ -42,11 +49,6 @@ function agregarCancion(event) {
 
 function mostrarAlerta(){
     swal('Error', 'Debe ingresar todos los datos que se solicitan', 'error')
-}
-
-function guardarEnLS(){
-    let cancionesString = JSON.stringify(canciones)
-    window.localStorage.setItem('canciones', cancionesString)
 }
 
 function editarCancion(nombreCancion){
@@ -64,10 +66,18 @@ function editarCancion(nombreCancion){
 function actualizarCancion(event){
     event.preventDefault()
 
+    let cancionIncluida = canciones.find(cancion => 
+        cancion.nombre === nombre.value && 
+        cancion.banda === banda.value &&
+        cancion.album === album.value)
+
     let nombreCancion = nombre.value
     let newBanda = banda.value
     let newAlbum = album.value
-    
+
+    if(cancionIncluida !== undefined){
+        swal('Error', 'La cancion ingresada ya se encuentra en la lista', 'error')
+    }else
     canciones = canciones.map(cancion =>{
         if(cancion.nombre === nombreCancion){
             return {
@@ -94,38 +104,36 @@ function eliminarCancion(btn, nombre){
     guardarEnLS()
 }
 
+function guardarEnLS(){
+    let cancionesString = JSON.stringify(canciones)
+    window.localStorage.setItem("canciones", cancionesString)
+}
+
 function leerCanciones(){
-   let cancionesEnLS = window.localStorage.getItem('canciones')
+   let cancionesEnLS = window.localStorage.getItem("canciones")
 
    if(cancionesEnLS === null){
     canciones = []
    }else {
     canciones = JSON.parse(cancionesEnLS)
    }
+    
    mostrarCanciones()
 }
 
 function mostrarCanciones(){
-    contenedor.innerHTML = ''
-    canciones.forEach(cancion => {
-    contenedor.innerHTML += `
-            <article>
-                <div>
-
-                <p>${cancion.nombre}</p>
-                <p>${cancion.banda}</p>
-                <p>${cancion.album}</p>
-
-                </div>
-                <div>
-                <button onclick = "editarCancion('${cancion.nombre}')" >Editar</button>
-                <button onclick = "eliminarCancion(this, '${cancion.nombre}')" >Borrar</button>
-
-                </div>
-
-            </article>
-    `
-    })
+    cancionesCSS.innerHTML = '';
+    canciones.forEach(e => {
+        cancionesCSS.innerHTML += `
+                <tr>
+                <th>${e.id}</th>
+                <td>${e.nombre}</td>
+                <td>${e.banda}</td>
+                <td>${e.album}</td>
+                <th><button onclick = "editarCancion('${e.nombre}')" >Editar</button> | <button onclick = "eliminarCancion(this, '${e.nombre}')" >Borrar</button></th>
+                </tr>
+                `;
+    });
 }
 
 leerCanciones()
