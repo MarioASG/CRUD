@@ -36,9 +36,13 @@ function agregarCancion(event) {
     if (cancion.nombre === "" || cancion.banda === "" ||cancion.album === ""){
         mostrarAlerta()
     }else if(cancionIncluida !== undefined){
+
         swal('Error', 'La cancion ingresada ya se encuentra en la lista', 'error')
 
-    }else{
+    }else if(canciones.length >= 25){
+
+        swal('Límite', 'Se ha llegado al límite de canciones', 'error')
+    }else {
         canciones.push(cancion)
     }
 
@@ -131,10 +135,8 @@ function mostrarCanciones(){
                 <td>${e.banda}</td>
                 <td>${e.album}</td>
                 <th>
-                <button onclick = "editarCancion('${e.nombre}')" >Editar</button>
-                |
-                <button onclick = "eliminarCancion(this, '${e.nombre}')" >Borrar</i></button></th>
-                </tr>
+                <button class="btn1" onclick = "editarCancion('${e.nombre}')" >Editar</button> |
+                <button class="btn1" onclick = "eliminarCancion(this, '${e.nombre}')" >Borrar</i></button></th>                </tr>
                 `;
     });
 }
