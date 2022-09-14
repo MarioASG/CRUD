@@ -162,10 +162,35 @@ p{
     justify-content: space-between;
 }
 
-.btn2{
-    display: none;
+td{
+ padding-left: 10px;
 }
 
+button{
+    background: linear-gradient(to left, #f0ae582a, #a64b2d9a);
+    border-radius: 5px;
+    border-style: double;
+    border-color: #75765d;
+    height: 30px;
+}
+
+#agregar, #actualizar{
+    background: #aba8a8;
+}
+
+button:hover{
+    transform: scale(1.15);
+    transition: 0.1s;
+}
+
+button:focus{
+    transform: scale(0.8);
+    transition: 0.1s;
+}
+
+
+
+/* DRAG & DROP */
 /* #canciones article div:first-child{
     display: flex;
 }
@@ -181,31 +206,7 @@ p{
     border: 2px dotted #000000;
 } */
 
-td{
- padding-left: 10px;
-}
 
-button{
-    background: linear-gradient(to left, #f0ae582a, #a64b2d9a);
-    border-radius: 5px;
-    border-style: double;
-    border-color: #75765d;
-    height: 30px;
-}
-
-#agregar{
-    background: #aba8a8;
-}
-
-button:hover{
-    transform: scale(1.15);
-    transition: 0.1s;
-}
-
-button:focus{
-    transform: scale(0.8);
-    transition: 0.1s;
-}
 
 /* header */
 @media screen and (max-width: 1200px){

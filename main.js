@@ -85,6 +85,7 @@ function actualizarCancion(event){
     canciones = canciones.map(cancion =>{
         if(cancion.nombre === nombreCancion){
             return {
+                id: cancion.id,
                 nombre: nombreCancion,
                 banda: newBanda,
                 album: newAlbum
@@ -135,8 +136,10 @@ function mostrarCanciones(){
                 <td>${e.banda}</td>
                 <td>${e.album}</td>
                 <th>
-                <button class="btn1" onclick = "editarCancion('${e.nombre}')" >Editar</button> |
-                <button class="btn1" onclick = "eliminarCancion(this, '${e.nombre}')" >Borrar</i></button></th>                </tr>
+                <button onclick = "editarCancion('${e.nombre}')" >Editar</button>
+                |
+                <button onclick = "eliminarCancion(this, '${e.nombre}')" >Borrar</button></th>
+                </tr>
                 `;
     });
 }
