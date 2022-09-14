@@ -130,7 +130,10 @@ function mostrarCanciones(){
                 <td>${e.nombre}</td>
                 <td>${e.banda}</td>
                 <td>${e.album}</td>
-                <th><button onclick = "editarCancion('${e.nombre}')" >Editar</button> | <button onclick = "eliminarCancion(this, '${e.nombre}')" >Borrar</button></th>
+                <th>
+                <button onclick = "editarCancion('${e.nombre}')" >Editar</button>
+                |
+                <button onclick = "eliminarCancion(this, '${e.nombre}')" >Borrar</i></button></th>
                 </tr>
                 `;
     });
