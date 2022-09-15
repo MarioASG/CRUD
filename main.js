@@ -11,6 +11,8 @@ let album = document.getElementById('album');
 
 let cancionesCSS = document.querySelector('.cancionesCSS');
 
+// Queria agregar un Drag & Drop pero por más que intenté no pude guardar los cambios en LS
+//-----------------------------------------------------------------------------------------
 // Sortable.create(cancionesCSS, {
 //     animation: 150,
 //     chosenClass: "seleccionado",
